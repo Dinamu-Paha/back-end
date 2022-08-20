@@ -72,7 +72,18 @@ public class UserService implements UserDetailsService {
     }
 
     public User setObject(User user){
-        return new User(user.getName(), user.getEmail(), passwordEncoder.encode(user.getPassword()), user.getRole());
+        return new User(user.getFirstName(),
+                        user.getLastName(),
+                        user.getDob(),
+                        user.getEmail(),
+                        user.getMobileNumber(),
+                        user.getHomeDistrict(),
+                        user.getDivisionalSecretory(),
+                        user.getExaminationYear(),
+                        passwordEncoder.encode(user.getPassword()),
+                        user.getSchool(),
+                        user.getDistrictOfSchool(),
+                        user.getRole());
     }
 
     public ResponseEntity<String> login(String email, String password){
@@ -81,9 +92,9 @@ public class UserService implements UserDetailsService {
 
             Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
             if(auth.isAuthenticated()){
-                jsonObject.put("token", jwtUtil.generateToken(getUserDetails().getEmail(), getUserDetails().getRole()));
+                jsonObject.put("token", jwtUtil.generateToken(getUserDetails().getEmail(), getUserDetails().getPassword()));
                 jsonObject.put("name", getUserDetails().getEmail());
-                jsonObject.put("role", getUserDetails().getRole());
+
                 return new ResponseEntity<String>(jsonObject.toString(), HttpStatus.OK);
             }
 
