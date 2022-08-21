@@ -33,6 +33,7 @@ public class User {
     private String school;
     private String districtOfSchool;
     private String role;
+    private Boolean verified = false;
 
     public User(String firstName, String lastName, Date dob, String email, int mobileNumber, String homeDistrict, String divisionalSecretory, Year examinationYear, String password, String school, String districtOfSchool, String role) {
 
@@ -156,5 +157,11 @@ public class User {
         this.role = role;
     }
 
-    
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
 }

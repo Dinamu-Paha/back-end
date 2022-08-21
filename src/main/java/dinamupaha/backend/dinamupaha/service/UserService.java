@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -55,20 +56,23 @@ public class UserService implements UserDetailsService {
         return userDetails;
     }
 
-    public String signUp(User user){
+    public Integer signUp(User user){
         try{
             User newUser = userRepo.findByEmail(user.getEmail());
             if(Objects.isNull(newUser)){
                 userRepo.save(setObject(user));
-                return "reistration successful";
+//                return "reistration successful";
+                return 0;
             }
             else{
-                return "your email is already used";
+//                return "your email is already used";
+                return 1;
             }
         }catch (Exception ex){
 
         }
-        return "something went wrong";
+//        return "something went wrong";
+        return 2;
     }
 
     public User setObject(User user){
@@ -108,6 +112,20 @@ public class UserService implements UserDetailsService {
 
     public String forgetPassword(String email){
         return "mail was sent";
+    }
+
+    public User passUserData(String email){
+        return userRepo.findByEmail(email);
+    }
+
+    public String editUserData(User user){
+        return null;
+    }
+
+    public void verifyUser(String hashEmail){
+        List<User> allUsers = userRepo.findAll();
+
+
     }
 
 }

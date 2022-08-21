@@ -53,7 +53,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/user/login", "/user/signup", "/user/forgotPassword", "/user/test", "/sendmail")
+                .antMatchers("/user/login", "/user/signup", "/user/forgotPassword", "/sendmail", "/user/test")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
