@@ -111,7 +111,7 @@ public class UserService implements UserDetailsService {
             if(auth.isAuthenticated()){
                 jsonObject.put("token", jwtUtil.generateToken(getUserDetails().getEmail(), getUserDetails().getPassword()));
                 jsonObject.put("name", getUserDetails().getEmail());
-
+                jsonObject.put("role", getUserDetails().getRole());
                 return new ResponseEntity<String>(jsonObject.toString(), HttpStatus.OK);
             }
 
