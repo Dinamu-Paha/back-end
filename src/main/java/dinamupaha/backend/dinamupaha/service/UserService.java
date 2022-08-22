@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 @Service
 @Slf4j
@@ -59,6 +60,9 @@ public class UserService implements UserDetailsService {
     public Integer signUp(User user){
         try{
             User newUser = userRepo.findByEmail(user.getEmail());
+            Random rnd = new Random();
+            int number = rnd.nextInt(10000);
+            user.setVerificationCode(number);
             if(Objects.isNull(newUser)){
                 userRepo.save(setObject(user));
 //                return "reistration successful";
@@ -75,6 +79,13 @@ public class UserService implements UserDetailsService {
         return 2;
     }
 
+    public int getVerificationCode(String email){
+        User user = userRepo.findByEmail(email);
+        return user.getVerificationCode();
+
+//        return 1;
+    }
+
     public User setObject(User user){
         return new User(user.getFirstName(),
                         user.getLastName(),
@@ -87,7 +98,9 @@ public class UserService implements UserDetailsService {
                         passwordEncoder.encode(user.getPassword()),
                         user.getSchool(),
                         user.getDistrictOfSchool(),
-                        user.getRole());
+                        user.getRole(),
+                        user.getVerificationCode());
+
     }
 
     public ResponseEntity<String> login(String email, String password){
@@ -122,10 +135,13 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
-    public void verifyUser(String hashEmail){
-        List<User> allUsers = userRepo.findAll();
-
-
+    public Boolean verifyUser(String email, int code){
+        User user = userRepo.findByEmail(email);
+        userRepo.deleteById(user.getId());
+        user.setVerificationCode(0);
+        user.setVerified(true);
+        userRepo.save(user);
+        return true;
     }
 
 }

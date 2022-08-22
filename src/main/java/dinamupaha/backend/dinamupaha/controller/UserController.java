@@ -25,33 +25,35 @@ public class UserController {
     private Encryptor encryptor;
 
     @PostMapping("/user/signup")
-    public String signup(@RequestBody User user) {
+    public Boolean signup(@RequestBody User user) {
         try {
             int check = userService.signUp(user);
             if(check == 0){
-                String msgBody = "http://localhost:8080/user/test/"+encryptor.encryptString(user.getEmail());
+//                String msgBody = "http://localhost:8080/user/test/"+encryptor.encryptString(user.getEmail());
+                int msgBody = userService.getVerificationCode(user.getEmail());
+                String msgBodyStr = Integer.toString(msgBody);
                 Email verificationMail = new Email();
 
                 verificationMail.setRecipient(user.getEmail());
-                verificationMail.setMsgBody(msgBody);
+                verificationMail.setMsgBody(msgBodyStr);
                 verificationMail.setSubject("Dinamupaha Verification");
 
                 emailService.sendSimpleMail(verificationMail);
-                return "successfully registered, please verify the email and login";
+                return true;
             }
             else{
-                return "your email is already ";
+                return false;
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return null;
-
+        return false;
     }
 
-    @GetMapping("/user/mailverify/{code}")
-    public void mailVerify(@PathVariable(value = "code") String hashEmail){
-        userService.verifyUser(hashEmail);
+    @PostMapping("/user/mailverify")
+    public Boolean mailVerify(@RequestBody User user){
+        return userService.verifyUser(user.getEmail(), user.getVerificationCode());
+//        return "true";
     }
 
 
@@ -84,8 +86,7 @@ public class UserController {
     }
 
     @GetMapping("/user/test")
-    public String test() throws NoSuchAlgorithmException {
-        String name = "dineth";
-        return encryptor.encryptString(name);
+    public int test(){
+       return userService.getVerificationCode("dineththarushan6@gmail.com");
     }
 }

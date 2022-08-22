@@ -34,8 +34,9 @@ public class User {
     private String districtOfSchool;
     private String role;
     private Boolean verified = false;
+    int verificationCode;
 
-    public User(String firstName, String lastName, Date dob, String email, int mobileNumber, String homeDistrict, String divisionalSecretory, Year examinationYear, String password, String school, String districtOfSchool, String role) {
+    public User(String firstName, String lastName, Date dob, String email, int mobileNumber, String homeDistrict, String divisionalSecretory, Year examinationYear, String password, String school, String districtOfSchool, String role, int verificationCode) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,6 +50,7 @@ public class User {
         this.school = school;
         this.districtOfSchool = districtOfSchool;
         this.role = role;
+        this.verificationCode = verificationCode;
     }
 
     public int getId() {
@@ -163,5 +165,13 @@ public class User {
 
     public void setVerified(Boolean verified) {
         this.verified = verified;
+    }
+
+    public int getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(int verificationCode) {
+        this.verificationCode = verificationCode;
     }
 }
