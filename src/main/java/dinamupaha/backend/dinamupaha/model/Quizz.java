@@ -1,2 +1,4 @@
-package dinamupaha.backend.dinamupaha.model;public class Quizz {
+package dinamupaha.backend.dinamupaha.model;
+
+public class Quizz {
 }

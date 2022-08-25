@@ -87,12 +87,6 @@ public class UserController {
     @GetMapping("/user/test")
     public String test(){
 
-        Email verificationMail = new Email();
-
-        verificationMail.setRecipient("nishathyasintha@gmail.com");
-        verificationMail.setMsgBody("msgBodyStr");
-        verificationMail.setSubject("Dinamupaha Verification");
-
-        return emailService.sendSimpleMail(verificationMail);
+        return "dineth";
     }
 }
