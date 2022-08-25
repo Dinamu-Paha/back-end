@@ -137,11 +137,18 @@ public class UserService implements UserDetailsService {
 
     public Boolean verifyUser(String email, int code){
         User user = userRepo.findByEmail(email);
-        userRepo.deleteById(user.getId());
-        user.setVerificationCode(0);
-        user.setVerified(true);
-        userRepo.save(user);
-        return true;
+
+        if(code == user.getVerificationCode()){
+            userRepo.deleteById(user.getId());
+            user.setVerificationCode(0);
+            user.setVerified(true);
+            userRepo.save(user);
+            return true;
+
+        }
+        else{
+            return false;
+        }
     }
 
 }

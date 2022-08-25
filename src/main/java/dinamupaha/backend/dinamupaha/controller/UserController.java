@@ -53,7 +53,6 @@ public class UserController {
     @PostMapping("/user/mailverify")
     public Boolean mailVerify(@RequestBody User user){
         return userService.verifyUser(user.getEmail(), user.getVerificationCode());
-//        return "true";
     }
 
 
@@ -86,7 +85,14 @@ public class UserController {
     }
 
     @GetMapping("/user/test")
-    public int test(){
-       return userService.getVerificationCode("dineththarushan6@gmail.com");
+    public String test(){
+
+        Email verificationMail = new Email();
+
+        verificationMail.setRecipient("nishathyasintha@gmail.com");
+        verificationMail.setMsgBody("msgBodyStr");
+        verificationMail.setSubject("Dinamupaha Verification");
+
+        return emailService.sendSimpleMail(verificationMail);
     }
 }
