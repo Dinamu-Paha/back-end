@@ -11,10 +11,7 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int subjectId;
     private String subject;
-
-    public Subject(String subject) {
-
-    }
+    private String subjectInEnglish;
 
     public Subject() {
 
@@ -34,5 +31,13 @@ public class Subject {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getSubjectInEnglish() {
+        return subjectInEnglish;
+    }
+
+    public void setSubjectInEnglish(String subjectInEnglish) {
+        this.subjectInEnglish = subjectInEnglish;
     }
 }
