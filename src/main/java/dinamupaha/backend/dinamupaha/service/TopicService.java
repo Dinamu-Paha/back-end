@@ -15,8 +15,4 @@ public class TopicService {
    public List<Topic> getTopics(String subject){
        return topicRepo.findBySubject(subject);
    }
-
-   public Topic addTopic(Topic topic){
-       return topicRepo.save(topic);
-   }
 }

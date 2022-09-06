@@ -19,9 +19,4 @@ public class TopicController {
     public List<Topic> getTopics(@PathVariable("subject") String subject){
         return topicService.getTopics(subject);
     }
-
-    @PostMapping("/add/topic")
-    public Topic addTopic(Topic topic){
-        return topicService.addTopic(topic);
-    }
 }
