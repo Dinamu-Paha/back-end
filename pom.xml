@@ -91,6 +91,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 				<configuration>
 					<excludes>
 						<exclude>
@@ -101,6 +102,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>dinamupaha_backend</finalName>
 	</build>
 
 </project>
