@@ -1,13 +1,16 @@
-package dinamupaha.backend.dinamupaha.response;
+package dinamupaha.backend.dinamupaha.controller;
 
-public class ResponseMessage {
+public class ImageUploadResponse {
     private String message;
-    public ResponseMessage(String message) {
+
+    public ImageUploadResponse(String message) {
         this.message = message;
     }
+
     public String getMessage() {
         return message;
     }
+
     public void setMessage(String message) {
         this.message = message;
     }
