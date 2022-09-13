@@ -1,2 +1,3 @@
-package dinamupaha.backend.dinamupaha.repository;public interface TopicRepo {
+package dinamupaha.backend.dinamupaha.repository;
+public interface TopicRepo {
 }
