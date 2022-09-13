@@ -1,4 +1,2 @@
-package dinamupaha.backend.dinamupaha.service;
-
-public class TopicService {
+package dinamupaha.backend.dinamupaha.service;public class TopicService {
 }
