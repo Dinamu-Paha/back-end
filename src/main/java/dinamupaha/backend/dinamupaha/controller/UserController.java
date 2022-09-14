@@ -87,6 +87,6 @@ public class UserController {
     @GetMapping("/user/test")
     public String test(){
 
-        return "Tharushan1";
+        return "Tharushan";
     }
 }
