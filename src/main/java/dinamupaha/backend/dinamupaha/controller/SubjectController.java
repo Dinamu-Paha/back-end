@@ -1,12 +1,10 @@
 package dinamupaha.backend.dinamupaha.controller;
 
 import dinamupaha.backend.dinamupaha.model.Subject;
+import dinamupaha.backend.dinamupaha.model.Subtopic;
 import dinamupaha.backend.dinamupaha.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,16 @@ public class SubjectController {
     @GetMapping("/getsubjects")
     public List<Subject> getSubjects(){
         return subjectService.getSubjects();
+    }
+
+    @GetMapping("/getsubtopic/{subjectId}")
+    public List<Subtopic> getSubtopics(@PathVariable("subjectId") int subjectId){
+        return subjectService.getSubtopics(subjectId);
+    }
+
+    @PostMapping("/addsubtopic")
+    public Subtopic addSubtopic(@RequestBody Subtopic subtopic){
+//        return subjectService.addSubtopic(subtopic);
+        return subtopic;
     }
 }
