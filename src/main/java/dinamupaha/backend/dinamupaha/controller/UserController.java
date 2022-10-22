@@ -3,7 +3,7 @@ package dinamupaha.backend.dinamupaha.controller;
 import dinamupaha.backend.dinamupaha.jwt.Encryptor;
 import dinamupaha.backend.dinamupaha.model.Email;
 import dinamupaha.backend.dinamupaha.model.User;
-import dinamupaha.backend.dinamupaha.service.EmailService;
+//import dinamupaha.backend.dinamupaha.service.EmailService;
 import dinamupaha.backend.dinamupaha.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +18,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private EmailService emailService;
+//    @Autowired
+//    private EmailService emailService;
 
     @Autowired
     private Encryptor encryptor;
@@ -38,7 +38,7 @@ public class UserController {
                 verificationMail.setMsgBody(msgBodyStr);
                 verificationMail.setSubject("Dinamupaha Verification");
 
-                emailService.sendSimpleMail(verificationMail);
+//                emailService.sendSimpleMail(verificationMail);
                 return true;
             }
             else{

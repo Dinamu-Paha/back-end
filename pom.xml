@@ -89,6 +89,9 @@
 	<build>
 		<plugins>
 			<plugin>
+
+<!--				<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> <version>${project.parent.version}</version>-->
+
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
@@ -102,7 +105,11 @@
 				</configuration>
 			</plugin>
 		</plugins>
+<<<<<<< HEAD
+		<finalName>dinamupaha-backend</finalName>
+=======
 		<finalName>dinamupaha_backend</finalName>
+>>>>>>> 01b734ebfb1ea376269084bf2630c286153abe6e
 	</build>
 
 </project>
