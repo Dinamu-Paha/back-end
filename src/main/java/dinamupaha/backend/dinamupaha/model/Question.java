@@ -9,13 +9,25 @@ import javax.persistence.Id;
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
+    private int questionId;
     private String prescription;
+
     private String postcription;
     private String ans1;
     private String ans2;
     private String ans3;
     private String ans4;
     private String correctAns;
+    private int subjectId;
+    private int subtopicId;
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
 
     public String getPrescription() {
         return prescription;
@@ -72,4 +84,20 @@ public class Question {
     public void setCorrectAns(String correctAns) {
         this.correctAns = correctAns;
     }
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public int getSubtopicId() {
+        return subtopicId;
+    }
+
+    public void setSubtopicId(int subtopicId) {
+        this.subtopicId = subtopicId;
+    }
+
 }
