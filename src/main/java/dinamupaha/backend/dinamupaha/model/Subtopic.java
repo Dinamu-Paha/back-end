@@ -1,15 +1,15 @@
 package dinamupaha.backend.dinamupaha.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.*;
+@Data
 @Entity
 public class Subtopic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sub_topic_id;
+    @Column(name="subjectId")
     private int subject_id;
     private String sub_topic;
 

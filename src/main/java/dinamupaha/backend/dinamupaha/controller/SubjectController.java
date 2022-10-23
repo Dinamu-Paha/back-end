@@ -27,7 +27,6 @@ public class SubjectController {
 
     @PostMapping("/addsubtopic")
     public Subtopic addSubtopic(@RequestBody Subtopic subtopic){
-//        return subjectService.addSubtopic(subtopic);
-        return subtopic;
+        return subjectService.addSubtopic(subtopic);
     }
 }

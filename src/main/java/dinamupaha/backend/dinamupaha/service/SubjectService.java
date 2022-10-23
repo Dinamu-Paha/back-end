@@ -13,6 +13,7 @@ import java.util.List;
 public class SubjectService {
     @Autowired
     private SubjectRepo subjectRepo;
+    @Autowired
     private SubtopicRepo subtopicRepo;
 
     public List<Subject> getSubjects(){
@@ -20,7 +21,7 @@ public class SubjectService {
     }
 
     public List<Subtopic> getSubtopics(int subjectId){
-        return subtopicRepo.findSubtopics(subjectId);
+        return subtopicRepo.findBySubjectId(subjectId);
     }
 
     public Subtopic addSubtopic(Subtopic subtopic){
