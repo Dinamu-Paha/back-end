@@ -105,11 +105,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-<<<<<<< HEAD
-		<finalName>dinamupaha-backend</finalName>
-=======
-		<finalName>dinamupaha_backend</finalName>
->>>>>>> 01b734ebfb1ea376269084bf2630c286153abe6e
 	</build>
 
 </project>

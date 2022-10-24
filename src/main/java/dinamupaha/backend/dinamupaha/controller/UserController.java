@@ -1,6 +1,7 @@
 package dinamupaha.backend.dinamupaha.controller;
 
 import dinamupaha.backend.dinamupaha.jwt.Encryptor;
+import dinamupaha.backend.dinamupaha.model.Admin;
 import dinamupaha.backend.dinamupaha.model.Email;
 import dinamupaha.backend.dinamupaha.model.User;
 //import dinamupaha.backend.dinamupaha.service.EmailService;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -88,5 +90,15 @@ public class UserController {
     public String test(){
 
         return "Tharushan";
+    }
+
+    @PostMapping("/user/addadmin")
+    public Admin addAdmin(@RequestBody Admin admin){
+        return userService.addAdmin(admin);
+    }
+
+    @PostMapping("/user/loginasadmin")
+    public List<Admin> loginAsAdmin(@RequestBody Admin admin){
+        return userService.logInAsAdmin(admin);
     }
 }

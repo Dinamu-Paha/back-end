@@ -1,8 +1,10 @@
 package dinamupaha.backend.dinamupaha.service;
 
 import dinamupaha.backend.dinamupaha.jwt.JwtUtil;
+import dinamupaha.backend.dinamupaha.model.Admin;
 import dinamupaha.backend.dinamupaha.model.User;
 
+import dinamupaha.backend.dinamupaha.repository.AdminRepo;
 import dinamupaha.backend.dinamupaha.repository.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
@@ -29,6 +31,8 @@ import java.util.Random;
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private AdminRepo adminRepo;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -150,6 +154,14 @@ public class UserService implements UserDetailsService {
         else{
             return false;
         }
+    }
+
+    public Admin addAdmin(Admin admin){
+        return adminRepo.save(admin);
+    }
+
+    public List<Admin> logInAsAdmin(Admin admin){
+        return adminRepo.findByUserName(admin.getUserName(), admin.getPassword());
     }
 
 }

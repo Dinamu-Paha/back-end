@@ -1,7 +1,9 @@
 package dinamupaha.backend.dinamupaha.service;
 
 import dinamupaha.backend.dinamupaha.model.Question;
+import dinamupaha.backend.dinamupaha.model.UserQuiz;
 import dinamupaha.backend.dinamupaha.repository.QuestionRepo;
+import dinamupaha.backend.dinamupaha.repository.UserQuizRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ public class QuestionService {
 
     @Autowired
     private QuestionRepo questionRepo;
+    @Autowired
+    private UserQuizRepo userQuizRepo;
 
     public Question addQuestion(Question question){
         return questionRepo.save(question);
@@ -21,11 +25,23 @@ public class QuestionService {
         return questionRepo.getQuestion(subjectId, subtopicId);
     }
 
+    public List<Question> getQuestionNoCond(){
+        return questionRepo.findAll();
+    }
+
     public List<String> getQuizzes(){
         return questionRepo.getQuizzes();
     }
 
     public List<Question> getQuestionsOfQuiz(String quizName){
         return questionRepo.getQuestionsOfQuiz(quizName);
+    }
+
+    public UserQuiz addQuizMarksForStudent(UserQuiz userQuiz){
+        return userQuizRepo.save(userQuiz);
+    }
+
+    public List<UserQuiz> getQuizMarksOfStudent(int userId){
+        return userQuizRepo.getQuizMarksOfStudent(userId);
     }
 }

@@ -17,4 +17,6 @@ public interface QuestionRepo extends JpaRepository<Question, Integer> {
     @Query
             ("from Question q where q.quizName = :quizName")
     List<Question> getQuestionsOfQuiz(String quizName);
+
+
 }

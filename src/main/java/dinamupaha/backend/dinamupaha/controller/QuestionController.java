@@ -2,6 +2,7 @@ package dinamupaha.backend.dinamupaha.controller;
 
 import dinamupaha.backend.dinamupaha.model.Image;
 import dinamupaha.backend.dinamupaha.model.Question;
+import dinamupaha.backend.dinamupaha.model.UserQuiz;
 import dinamupaha.backend.dinamupaha.service.QuestionService;
 import dinamupaha.backend.dinamupaha.util.ImageUtility;
 import lombok.Data;
@@ -43,6 +44,11 @@ public class QuestionController {
         return questionService.getQuestion(subjectId, subtopicId);
     }
 
+    @GetMapping("/getquestion")
+    public List<Question> getQuestionNoCond(){
+        return questionService.getQuestionNoCond();
+    }
+
     //returing list of quizz names
     @GetMapping("/getquizzes")
     public List<String> getQuizzes(){
@@ -54,5 +60,16 @@ public class QuestionController {
     @GetMapping("/getquestionsofquiz/{quizName}")
     public List<Question> getQuestionsOfQuiz(@PathVariable("quizName") String quizName){
         return questionService.getQuestionsOfQuiz(quizName);
+    }
+
+    //add quiz marks for a child
+    @PostMapping("/addquizmarksforstudent")
+    public UserQuiz addQuizMarksForStudent(@RequestBody UserQuiz userQuiz){
+        return questionService.addQuizMarksForStudent(userQuiz);
+    }
+
+    @GetMapping("/getquizmarksofstudent/{userId}")
+    public List<UserQuiz> getQuizMarksOfStudent(@PathVariable("userId") int userId){
+        return questionService.getQuizMarksOfStudent(userId);
     }
 }
