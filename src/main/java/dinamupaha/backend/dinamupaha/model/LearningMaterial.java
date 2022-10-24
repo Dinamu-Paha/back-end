@@ -1,4 +1,4 @@
 package dinamupaha.backend.dinamupaha.model;
 
-public class LearningMaterial {
+public class  LearningMaterial {
 }

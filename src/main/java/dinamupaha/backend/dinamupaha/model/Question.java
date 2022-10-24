@@ -17,9 +17,11 @@ public class Question {
     private String ans2;
     private String ans3;
     private String ans4;
-    private String correctAns;
+    private int correctAns;
     private int subjectId;
     private int subtopicId;
+    private String quizName;
+    private int pastpaperYear;
 
     public int getQuestionId() {
         return questionId;
@@ -77,11 +79,11 @@ public class Question {
         this.ans4 = ans4;
     }
 
-    public String getCorrectAns() {
+    public int getCorrectAns() {
         return correctAns;
     }
 
-    public void setCorrectAns(String correctAns) {
+    public void setCorrectAns(int correctAns) {
         this.correctAns = correctAns;
     }
     public int getSubjectId() {
@@ -100,4 +102,19 @@ public class Question {
         this.subtopicId = subtopicId;
     }
 
+    public String getQuizName() {
+        return quizName;
+    }
+
+    public void setQuizName(String quizName) {
+        this.quizName = quizName;
+    }
+
+    public int getPastpaperYear() {
+        return pastpaperYear;
+    }
+
+    public void setPastpaperYear(int pastpaperYear) {
+        this.pastpaperYear = pastpaperYear;
+    }
 }

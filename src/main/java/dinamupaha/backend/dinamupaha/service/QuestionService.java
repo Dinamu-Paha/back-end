@@ -20,4 +20,12 @@ public class QuestionService {
     public List<Question> getQuestion(int subjectId, int subtopicId){
         return questionRepo.getQuestion(subjectId, subtopicId);
     }
+
+    public List<String> getQuizzes(){
+        return questionRepo.getQuizzes();
+    }
+
+    public List<Question> getQuestionsOfQuiz(String quizName){
+        return questionRepo.getQuestionsOfQuiz(quizName);
+    }
 }
