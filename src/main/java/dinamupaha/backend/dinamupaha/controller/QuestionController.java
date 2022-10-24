@@ -49,6 +49,11 @@ public class QuestionController {
         return questionService.getQuestionNoCond();
     }
 
+    @GetMapping("/getquestion/{subjectId}")
+    public List<Question> getQuestionBySubject(@PathVariable("subjectId") int subjectId){
+        return questionService.getQuestionBySubject(subjectId);
+    }
+
     //returing list of quizz names
     @GetMapping("/getquizzes")
     public List<String> getQuizzes(){

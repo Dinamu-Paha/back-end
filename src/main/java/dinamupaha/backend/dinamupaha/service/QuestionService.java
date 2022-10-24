@@ -29,6 +29,10 @@ public class QuestionService {
         return questionRepo.findAll();
     }
 
+    public List<Question> getQuestionBySubject(int subjectId){
+        return questionRepo.getQuestionBySubject(subjectId);
+    }
+
     public List<String> getQuizzes(){
         return questionRepo.getQuizzes();
     }
