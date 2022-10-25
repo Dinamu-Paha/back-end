@@ -78,13 +78,18 @@ public class QuestionController {
         return questionService.getQuizMarksOfStudent(userId);
     }
 
-    @GetMapping("getpastpaper")
+    @GetMapping("/getpastpaper")
     public List<Integer> getPastpaper(){
         return questionService.getPastpaper();
     }
 
-    @GetMapping("getpastpaperofyear/{year}")
+    @GetMapping("/getpastpaperofyear/{year}")
     public List<Question> getPastpaperOfYear(@PathVariable("year") int year){
         return questionService.getPastpaperOfYear(year);
+    }
+
+    @GetMapping("/getquestionofpastpaperandsubtopic/{year}/{subtopicId}")
+    public List<Question> getQuestionOfPastpaperAndSubtopic(@PathVariable("year") int year, @PathVariable("subtopicId") int subtopicId){
+        return questionService.getQuestionOfPastpaperAndSubtopic(year, subtopicId);
     }
 }
