@@ -31,6 +31,6 @@ public interface QuestionRepo extends JpaRepository<Question, Integer> {
     List<Question> getPastpaperOfYear(int year);
 
     @Query
-            ("from Question q where q.pastpaperYear = :year and q.subtopicId = :subtopicId")
-    List<Question> getQuestionOfPastpaperAndSubtopic(int year, int subtopicId);
+            ("from Question q where q.subtopicId = :subtopicId and q.pastpaperYear is not null")
+    List<Question> getQuestionOfPastpaperAndSubtopic(int subtopicId);
 }

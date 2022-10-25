@@ -57,7 +57,7 @@ public class QuestionService {
         return questionRepo.getPastpaperOfYear(year);
     }
 
-    public List<Question> getQuestionOfPastpaperAndSubtopic(int year, int subtopicId){
-        return questionRepo.getQuestionOfPastpaperAndSubtopic(year, subtopicId);
+    public List<Question> getQuestionOfPastpaperAndSubtopic(int subtopicId){
+        return questionRepo.getQuestionOfPastpaperAndSubtopic(subtopicId);
     }
 }
