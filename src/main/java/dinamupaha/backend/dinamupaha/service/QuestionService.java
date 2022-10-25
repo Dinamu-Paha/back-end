@@ -49,7 +49,7 @@ public class QuestionService {
         return userQuizRepo.getQuizMarksOfStudent(userId);
     }
 
-    public List<Question> getPastpaper(){
+    public List<Integer> getPastpaper(){
         return questionRepo.getPastpaper();
     }
 

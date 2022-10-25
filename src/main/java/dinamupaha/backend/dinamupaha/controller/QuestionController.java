@@ -78,8 +78,8 @@ public class QuestionController {
         return questionService.getQuizMarksOfStudent(userId);
     }
 
-    @GetMapping("getpastpapers")
-    public List<Question> getPastpaper(){
+    @GetMapping("getpastpaper")
+    public List<Integer> getPastpaper(){
         return questionService.getPastpaper();
     }
 
