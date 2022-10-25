@@ -77,4 +77,14 @@ public class QuestionController {
     public List<UserQuiz> getQuizMarksOfStudent(@PathVariable("userId") int userId){
         return questionService.getQuizMarksOfStudent(userId);
     }
+
+    @GetMapping("getpastpapers")
+    public List<Question> getPastpaper(){
+        return questionService.getPastpaper();
+    }
+
+    @GetMapping("getpastpaperofyear/{year}")
+    public List<Question> getPastpaperOfYear(@PathVariable("year") int year){
+        return questionService.getPastpaperOfYear(year);
+    }
 }
