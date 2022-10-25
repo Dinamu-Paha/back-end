@@ -22,5 +22,15 @@ public interface QuestionRepo extends JpaRepository<Question, Integer> {
             ("from Question q where q.quizName = :quizName")
     List<Question> getQuestionsOfQuiz(String quizName);
 
+    @Query
+            ("select distinct(q.pastpaperYear) from Question q where q.pastpaperYear is not null order by q.pastpaperYear")
+    List<Integer> getPastpaper();
 
+    @Query
+            ("from Question q where q.pastpaperYear = :year")
+    List<Question> getPastpaperOfYear(int year);
+
+    @Query
+            ("from Question q where q.pastpaperYear = :year and q.subtopicId = :subtopicId")
+    List<Question> getQuestionOfPastpaperAndSubtopic(int year, int subtopicId);
 }

@@ -48,4 +48,16 @@ public class QuestionService {
     public List<UserQuiz> getQuizMarksOfStudent(int userId){
         return userQuizRepo.getQuizMarksOfStudent(userId);
     }
+
+    public List<Integer> getPastpaper(){
+        return questionRepo.getPastpaper();
+    }
+
+    public List<Question> getPastpaperOfYear(int year){
+        return questionRepo.getPastpaperOfYear(year);
+    }
+
+    public List<Question> getQuestionOfPastpaperAndSubtopic(int year, int subtopicId){
+        return questionRepo.getQuestionOfPastpaperAndSubtopic(year, subtopicId);
+    }
 }
