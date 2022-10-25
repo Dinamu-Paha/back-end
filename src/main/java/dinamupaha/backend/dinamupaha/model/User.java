@@ -32,11 +32,11 @@ public class User {
     
     private String school;
     private String districtOfSchool;
-    private String role;
+    private Boolean role;
     private Boolean verified = false;
     int verificationCode;
 
-    public User(String firstName, String lastName, Date dob, String email, int mobileNumber, String homeDistrict, String divisionalSecretory, Year examinationYear, String password, String school, String districtOfSchool, String role, int verificationCode) {
+    public User(String firstName, String lastName, Date dob, String email, int mobileNumber, String homeDistrict, String divisionalSecretory, Year examinationYear, String password, String school, String districtOfSchool, Boolean role, int verificationCode) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,125 +53,4 @@ public class User {
         this.verificationCode = verificationCode;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(int mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getHomeDistrict() {
-        return homeDistrict;
-    }
-
-    public void setHomeDistrict(String homeDistrict) {
-        this.homeDistrict = homeDistrict;
-    }
-
-    public String getDivisionalSecretory() {
-        return divisionalSecretory;
-    }
-
-    public void setDivisionalSecretory(String divisionalSecretory) {
-        this.divisionalSecretory = divisionalSecretory;
-    }
-
-    public Year getExaminationYear() {
-        return examinationYear;
-    }
-
-    public void setExaminationYear(Year examinationYear) {
-        this.examinationYear = examinationYear;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public String getDistrictOfSchool() {
-        return districtOfSchool;
-    }
-
-    public void setDistrictOfSchool(String districtOfSchool) {
-        this.districtOfSchool = districtOfSchool;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Boolean getVerified() {
-        return verified;
-    }
-
-    public void setVerified(Boolean verified) {
-        this.verified = verified;
-    }
-
-    public int getVerificationCode() {
-        return verificationCode;
-    }
-
-    public void setVerificationCode(int verificationCode) {
-        this.verificationCode = verificationCode;
-    }
 }
