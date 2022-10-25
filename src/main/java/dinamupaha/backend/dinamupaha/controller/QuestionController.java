@@ -2,6 +2,7 @@ package dinamupaha.backend.dinamupaha.controller;
 
 import dinamupaha.backend.dinamupaha.model.Image;
 import dinamupaha.backend.dinamupaha.model.Question;
+import dinamupaha.backend.dinamupaha.model.QuestionPastpaper;
 import dinamupaha.backend.dinamupaha.model.UserQuiz;
 import dinamupaha.backend.dinamupaha.service.QuestionService;
 import dinamupaha.backend.dinamupaha.util.ImageUtility;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
 import java.util.List;
 
@@ -91,5 +93,10 @@ public class QuestionController {
     @GetMapping("/getquestionofpastpaperandsubtopic/{year}/{subtopicId}")
     public List<Question> getQuestionOfPastpaperAndSubtopic(@PathVariable("year") int year, @PathVariable("subtopicId") int subtopicId){
         return questionService.getQuestionOfPastpaperAndSubtopic(year, subtopicId);
+    }
+
+    @PostMapping("/makepastpaper")
+    public int makePastpaper(@RequestParam int year, @RequestParam int questionIds){
+        return year;
     }
 }

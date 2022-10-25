@@ -54,7 +54,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/user/login", "/user/signup", "/user/forgotPassword", "/user/test", "/sendmail", "/user/mailverify", "/upload/image", "/get/image/info/{name}", "/get/image/{name}", "/subject/getsubjects", "/subject/addsubtopic", "/subject/getsubtopic/{subjectId}", "/question/addquestion", "/question/getquestion/{subjectId}/{subtopicId}", "/question/addquestionwithimage", "/question/getquizzes"
-                ,"/question/getquestionsofquiz/{quizName}", "/question/addquizmarksforstudent", "/question/getquizmarksofstudent/{userId}", "/question/getquestion", "/question/getquestion{subjectId}", "/question/getpastpaper", "/question/getpastpaperofyear/{year}", "/user/addadmin", "/user/loginasadmin")
+                ,"/question/getquestionsofquiz/{quizName}", "/question/addquizmarksforstudent", "/question/getquizmarksofstudent/{userId}", "/question/getquestion", "/question/getquestion{subjectId}", "/question/getpastpaper", "/question/getpastpaperofyear/{year}", "/question/makepastpaper", "/user/addadmin", "/user/loginasadmin")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
